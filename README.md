@@ -1,2 +1,2 @@
 # physics-sim
-Building some test physics simulations with Vulkan
+Building some test physics simulations with OpenGL
