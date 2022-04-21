@@ -1,2 +1,2 @@
 # physics-sim
-Building some test physics simulations in C++
+Building some test physics simulations with Vulkan
