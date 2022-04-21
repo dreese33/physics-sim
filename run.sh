@@ -7,4 +7,4 @@ make
 ./Physics_Sim
 
 # return to root dir
-cd ../..
+cd ..
