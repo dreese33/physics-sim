@@ -1,9 +1,8 @@
 #include <iostream>
-#include <glad/glad.h>
-#include <GLFW/glfw3.h>
+#include "src/windows/window.h"
 
 int main()
 {
-  std::cout << "Test sim" << std::endl;
+  Windows::Window window(600, 600);
   return 0;
 }
