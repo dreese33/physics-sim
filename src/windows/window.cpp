@@ -1,8 +1,11 @@
 #include "window.h"
 
 namespace Windows {
-  Window::Window(int width, int height)
-  {
+
+  /**
+   * @brief Initialize window and OpenGL window hints
+   */
+  void Window::init() {
     glfwInit();
 
     // v3.3
@@ -15,9 +18,40 @@ namespace Windows {
     #endif
 
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+  }
+
+
+  /**
+   * @brief Runs main loop for the physics simulator
+   *
+   * @param window The main content view
+   */
+  void Window::run(GLFWwindow* window) {
+    while (!glfwWindowShouldClose(window))
+    {
+      // prevents flickering effect
+      glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
+      glClear(GL_COLOR_BUFFER_BIT);
+
+      glfwSwapBuffers(window);
+      glfwPollEvents();
+    }
+  }
+
+
+  /**
+   * @brief Construct a new Window:: Window object
+   *
+   * @param width Width of window
+   * @param height Height of window
+   */
+  Window::Window(int width, int height)
+  {
+    // initialize window
+    init();
 
     // create glfw window, terminate if fails
-    GLFWwindow *window = glfwCreateWindow(width, height, "Digitizing Circles", NULL, NULL);
+    GLFWwindow *window = glfwCreateWindow(width, height, "Physics Simulator", NULL, NULL);
     if (window == NULL)
     {
       std::cout << "Failed to create GLFW window" << std::endl;
@@ -38,15 +72,7 @@ namespace Windows {
     // glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 
     // OpenGL Run Loop
-    while (!glfwWindowShouldClose(window))
-    {
-      // prevents flickering effect
-      glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
-      glClear(GL_COLOR_BUFFER_BIT);
-
-      glfwSwapBuffers(window);
-      glfwPollEvents();
-    }
+    run(window);
 
     glfwTerminate();
   }

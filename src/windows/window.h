@@ -11,6 +11,9 @@ namespace Windows
   {
     public:
       Window(int width, int height);
+    private:
+      void init();
+      void run(GLFWwindow* window);
   };
 }
 

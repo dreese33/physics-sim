@@ -37,3 +37,6 @@
 
 # builds
 build/*
+
+# generated documentation
+html/*
